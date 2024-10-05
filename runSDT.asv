@@ -1,18 +1,19 @@
 %%
-out = fourParamModel([2,5,0.5,-4]);
+out = fourParamModel([2,5,0.5,0]);
 figure; bar(out); title('Actual Data');
 xticks(1:6)
 xticklabels({'Hit-exp','FA-exp','Hit-optoIC','FA-optoIC','Hit-optoMGB','FA-MGB'})
 y = [0.9, 0.1, 0.9, 0.9,0.6, 0.4]; 
 
-e = myerror([1,1,0,0],y);
+e = myerror([0.5,1,0,0],y);
 
 %%
 fun = @(x)(myerror(x,y));
-out = fmincon(fun, [1,1,0,0],...
-    [],[],[],[],...
-    [1e-06,1e-06,-100,-100],[100 100 100 100]); % this fits the data from the above block
+% out = fmincon(fun, [1,1,0,0],...
+%     [],[],[],[],...
+%     [1e-06,1e-06,-100,-100],[100 100 100 100]); % this fits the data from the above block
 
+out=lsqnonlin(fun,[0.5,1,0,0]);
 %%
 
 predBehav = fourParamModel(out);

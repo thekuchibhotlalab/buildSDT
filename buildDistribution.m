@@ -7,7 +7,6 @@ stimuli = [target_strength, foil_strength];
 
 label = [true(1, num_stimuli / 2), false(1, num_stimuli / 2)];
 
-
 sdt.target = target_strength; 
 sdt.foil = foil_strength; 
 sdt.stimuli = stimuli; 
