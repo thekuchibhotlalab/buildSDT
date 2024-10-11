@@ -11,7 +11,4 @@ sdt.target = target_strength;
 sdt.foil = foil_strength; 
 sdt.stimuli = stimuli; 
 sdt.label = label; 
-
-
-
 end 
